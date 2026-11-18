@@ -24,9 +24,9 @@
 %bcond nscd 1
 # This is libnsl1, we already have newer libnsl - 251
 %bcond libnsl 0
-# Run the full testsuite, enabled on x86_64 first
-# TODO: Enable the testsuite on riscv64 after a full run on real hardware
-%ifarch x86_64
+# Run the full testsuite on x86_64 and riscv64. Individual test failures are
+# reported, not fatal; only a missing tests.sum fails the build.
+%ifarch x86_64 riscv64
 %bcond testsuite 1
 %else
 %bcond testsuite 0
